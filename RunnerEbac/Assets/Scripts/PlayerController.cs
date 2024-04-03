@@ -29,6 +29,11 @@ public class PlayerController : Singleton<PlayerController>
     public bool invincible;
 
     public bool destroyEnemy;
+
+    [Header("Animator")]
+
+    public AnimatorManager animatorManager;
+
     void Start()
     {
         ResetSpeed();
@@ -86,16 +91,18 @@ public class PlayerController : Singleton<PlayerController>
         }
     }
 
-    public void EndGame()
+    public void EndGame(AnimatorManager.AnimationType animationType = AnimatorManager.AnimationType.IDLE)
     {
         canRun = false;
         endScreen.SetActive(true);
+        animatorManager.Play(animationType);
     }
 
     public void StartGame()
     {
         canRun=true;
         startScreen.SetActive(false);
+        animatorManager.Play(AnimatorManager.AnimationType.RUN);
     }
 
     public void PowerUpSpeedUp(float f)
