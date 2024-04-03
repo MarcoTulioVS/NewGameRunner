@@ -2544,6 +2544,7 @@ MonoBehaviour:
   currentSpeed: 0
   invincible: 0
   destroyEnemy: 0
+  animatorManager: {fileID: 687369564}
 --- !u!65 &687369567
 BoxCollider:
   m_ObjectHideFlags: 0
